@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
+    <title>Grape I/O</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="module">
+    const { createApp } = Vue
+    createApp({
+        data() {
+            return {
+                inputType: "",
+                parameters: {
+                    "fixed-acidity": 0,
+                    "volatile-acidity": 0,
+                    "citric-acid": 0,
+                    "residual-sugar": 0,
+                    "chlorides": 0,
+                    "free-sulfur-dioxide": 0,
+                    "total-sulfur-dioxide": 0,
+                    "density": 0,
+                    "pH": 0,
+                    "sulphates": 0,
+                    "alcohol": 0
+                },
+                canSubmit: false,
+                errors: {
+                    "fixed-acidity": false,
+                    "volatile-acidity": false,
+                    "citric-acid": false,
+                    "residual-sugar": false,
+                    "chlorides": false,
+                    "free-sulfur-dioxide": false,
+                    "total-sulfur-dioxide": false,
+                    "density": false,
+                    "pH": false,
+                    "sulphates": false,
+                    "alcohol": false
+                },
+                loading: false
+            }
+        },
+        template: /*html*/`
+            <!-- Header -->
+            <div class="Header">
+                <div class="Header-item">
+                    <a href="/" class="Header-link f4 d-flex flex-items-center">
+                        <span class="h1">Grape I/O</span>
+                    </a>
+                </div>
+                <div class="Header-item Header-item--full">
+                    <img class="logo" width="100" height="100" src="assets/grapeio.svg">
+                </div>
+            </div>
+
+            <!-- Input section -->
+            <div class="Box m-4">
+                <div class="Box-header">
+                    <h3 class="Box-title h2">Input</h3>
+                </div>
+                <div class="Box-body">
+                    <span class="h5">What would you like to analyze today?</span>
+                    <form class="mt-2" @submit="submit">
+                        <div class="radio-group">
+                        <input class="radio-input" id="parameters" type="radio" name="options" value="parameters" v-model="inputType">
+                        <label class="radio-label" for="parameters">Wine parameters</label>
+                        <input class="radio-input" id="product" type="radio" name="options" value="product" v-model="inputType">
+                        <label class="radio-label" for="product">Wine product(s)</label>
+                        </div>
+
+
+                        <div id="parameters-input-group" v-if="inputType == 'parameters'" class="form-group">
+                            <span class="d-block h5 form-group-header">Please input all parameters</span>
+
+                            <div v-for="value, parameter in parameters" class="form-group" :class="{errored: errors[parameter]}" > 
+                                <label :for="parameter" class="form-label form-group-header d-block">{{ parameter.charAt(0).toUpperCase() + parameter.slice(1).replaceAll("-", " ") }}</label>
+                                <input :id="parameter + '-input'" type="number" :name="parameter" class="form-control d-block form-group-body" @input="parametersFieldValidate(parameter)" v-model="parameters[parameter]">
+                                <p class="note error">bruh</p>
+                            </div>
+
+                        </div>
+
+                        <div v-if="inputType != ''" class="form-group">
+                            <button type="submit" :disabled="!canSubmit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- Output section -->
+
+            <div id="loading-animation Box m-4 " v-if="loading">
+                <img width="250" src="assets/wine.gif" alt="loading">
+            </div>
+
+        `,
+        methods: {
+            submit(e) {
+                e.preventDefault()
+                console.log("submit")
+            },
+            parametersFieldValidate(parameter) {
+                if (typeof this.parameters[parameter] != "number" || this.parameters[parameter] < 0) {
+                    this.errors[parameter] = true
+                    this.canSubmit = false
+                } else {
+                    this.errors[parameter] = false
+                    this.canSubmit = true
+                    for (let error in this.errors) {
+                        if (this.errors[error]) {
+                            this.canSubmit = false
+                            break
+                        }
+                    }
+                }
+
+            }
+        }
+
+    }).mount('#app')
+    </script>
+
+    
+</body>
+<script src="ai.js"></script>
+<script src="script.js"></script>
+</html>

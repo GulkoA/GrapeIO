@@ -1,0 +1,38 @@
+<!-- 
+<script>
+    const parametersInputGroup = document.getElementById("parameters-input-group")
+    generateInput = (name) => {
+        nameHyphen = name.replace(" ", "-")
+        nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1)
+
+        const div =  document.createElement("div")
+        div.setAttribute("class", "form-group")
+
+        const label = document.createElement("label")
+        label.setAttribute("for", nameHyphen)
+        label.setAttribute("class", "form-label form-group-header d-block")
+        label.textContent = nameCapitalized
+
+        const input = document.createElement("input")
+        input.setAttribute("id", nameHyphen + "-input")
+        input.setAttribute("type", "text")
+        input.setAttribute("name", nameHyphen)
+        input.setAttribute("class", "form-control d-block form-group-body")
+        // input.setAttribute("size", "3")
+
+        const error = document.createElement("p")
+        error.setAttribute("class", "note error")
+        error.setAttribute("id", nameHyphen + "-input-validation")
+        error.textContent = "bruh"
+
+        div.appendChild(label)
+        div.appendChild(input)
+        div.appendChild(error)
+        return div
+    }
+
+    for (let parameter in parameters) {
+        parametersInputGroup.appendChild(generateInput(parameters[parameter]))
+    }
+    
+</script> -->

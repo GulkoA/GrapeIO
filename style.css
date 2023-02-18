@@ -1,0 +1,51 @@
+/* 
+.loading{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  &__content{
+     text-align: center;
+     background: #fff;
+     padding: 40px 50px 30px 50px;
+     // border-radius: 3px;
+     box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.2);
+    
+    .loading__letter{
+      font-family: Josefin Sans;
+      margin: 15px 0;
+      font-weight: bold;
+      font-size: 18px;
+      list-style-type: none;
+      display: flex;
+      padding-left: 0;
+      justify-content: center;
+      li{
+        animation: loadingAnime linear 1.6s infinite;
+        $delay: 0.48;
+        @for $i from 1 through 13 {
+          &:nth-child(#{$i}){animation-delay: #{$delay + ($i * 0.14)} + "s" }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 500px){
+    background: #fff;
+    &__content{
+      box-shadow: unset;
+      img{
+        width: 100%;
+        max-width: 150px;
+      }
+    }
+  }
+}
+
+@keyframes loadingAnime {
+    0% {opacity: 0.6;}
+    100% {opacity: 1;}
+} */
