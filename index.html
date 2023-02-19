@@ -16,6 +16,13 @@
 
     <script type="module">
     const { createApp } = Vue
+    let wines = []
+    fetch("./assets/wines.json")
+        .then(res => res.json())
+        .then(data => {
+            wines = data
+        })
+
     createApp({
         data() {
             return {
@@ -47,9 +54,13 @@
                     "sulphates": false,
                     "alcohol": false
                 },
+                productName: "",
+                productSelected: undefined,
                 loading: false,
                 showResults: false,
-                quality: 0
+                quality: 0,
+                
+                productLookupAutocomplete: []
             }
         },
         template: /*html*/`
@@ -76,13 +87,13 @@
                         <div class="radio-group">
                         <input class="radio-input" id="parameters" type="radio" name="options" value="parameters" v-model="inputType">
                         <label class="radio-label" for="parameters">Wine parameters</label>
-                        <input class="radio-input" id="product" type="radio" name="options" value="product" v-model="inputType">
-                        <label class="radio-label" for="product">Wine product(s)</label>
+                        <input class="radio-input" id="product" type="radio" name="options" value="products" v-model="inputType">
+                        <label class="radio-label" for="product">Wine product</label>
                         </div>
 
 
                         <div id="parameters-input-group" v-if="inputType == 'parameters'" class="form-group">
-                            <span class="d-block h5 form-group-header">Please input all parameters</span>
+                            <span class="d-block h5 form-group-header">Please input all parameters as non-negative decimals</span>
 
                             <div v-for="value, parameter in parameters" class="form-group" :class="{errored: errors[parameter]}" > 
                                 <label :for="parameter" class="form-label form-group-header d-block">{{ parameter.charAt(0).toUpperCase() + parameter.slice(1).replaceAll("-", " ") }}</label>
@@ -92,8 +103,56 @@
 
                         </div>
 
+                        <div id="products-input-group" v-if="inputType == 'products'" class="form-group container-lg clearfix">
+                            <span class="d-block h5 form-group-header">Please start typing the name of wine you desire to analyze and select from dropdown</span>
+                            <div class="position-relative">
+                                <div class="col-4 float-left p-4">
+                                    <label for="input-0" class="autocomplete-label-stacked">Wine lookup</label>
+                                    <span class="autocomplete-body">
+                                        <input id="product-lookup" v-model="productName" class="form-control" type="text" @input="productLookupTyping" />
+                                        <ul v-if="productLookupAutocomplete.length > 0" role="listbox" aria-label="Results" class="autocomplete-results">
+                                        <li v-for="wine in productLookupAutocomplete" @click="productLookupAutocompleteAccept(wine)" class="autocomplete-item">{{wine.name}} - {{wine['vintage-name']}} <span class="color-fg-muted">{{wine.year}}</span></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                                <div class="col-4 float-left p-4" v-if="productSelected">
+                                    <span class="d-block h4 form-group-header">You selected this wine:</span>
+                                    <div v-if="productSelected['bottle-shot']" class="Box p-3 width-fit" width="100" data-color-mode="light" data-light-theme="light">
+                                        <img class="" height="250" :src="productSelected['bottle-shot']">
+                                    </div>
+                                    <div v-else class="Box p-3 width-fit" width="100" data-color-mode="light" data-light-theme="light">
+                                        <img height="250" src="assets/wine-bottle-nobg.png">
+                                    </div>
+                                </div>
+                                <div class="col-4 float-left p-4" v-if="productSelected">
+                                    <span class="d-block h2 my-1">{{productSelected.name}}</span>
+                                    <span class="d-block h3 my-1">{{productSelected['vintage-name']}} - {{productSelected.year}}</span>
+                                    <span class="d-block h4 color-fg-muted my-1">{{productSelected['origin']}}</span>
+
+                                    <table class="my-2 p-1 mx-0 Box rounded-3">
+                                        <tr><td class="border-bottom p-2">pH</td>
+                                            <td v-if="productSelected['ph']" class="border-bottom p-2">{{productSelected['ph']}}</td>
+                                            <td v-else class="color-bg-closed border-bottom p-2">Not available</td>
+                                        </tr>
+                                        <tr><td class="border-bottom p-2">Alcohol</td>
+                                            <td v-if="productSelected['abv']" class="border-bottom p-2">{{productSelected['abv']}}</td>
+                                            <td v-else class="color-bg-closed border-bottom p-2">Not available</td>
+                                        </tr>
+                                        <tr><td class="border-bottom p-2">Sugar</td>
+                                            <td v-if="productSelected['sugar']" class="border-bottom p-2">{{productSelected['sugar']}}</td>
+                                            <td v-else class="color-bg-closed border-bottom p-2">Not available</td>
+                                        </tr>
+                                        <tr><td class="p-1">Acidity</td>
+                                            <td v-if="productSelected['acidity']" class="p-2">{{productSelected['acidity']}}</td>
+                                            <td v-else class="color-bg-closed p-2">Not available</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
                         <div v-if="inputType != ''" class="form-group">
-                            <button type="submit" :disabled="!canSubmit" class="btn btn-primary">Submit</button>
+                            <button type="submit" :disabled="!canSubmit" class="btn btn-primary">Evaluate</button>
                         </div>
                     </form>
                 </div>
@@ -101,23 +160,66 @@
 
 
             <!-- Output section -->
-
-            <div id="loading-animation Box m-4 " v-if="loading">
-                <img width="250" src="assets/wine.gif" alt="loading">
+            <div id="output-section" class="w-full">
+                <div class="center">
+                    <div id="loading-animation Box m-4 " v-if="loading">
+                        <img width="250" src="assets/wine-dark-nobg.gif" alt="loading">
+                        <h3 class="h3 center">Processing</h3>
+                    </div>
+                </div>
+                <div class="Box m-4" id="result" v-if="showResults">
+                    <div class="Box-header">
+                        <h3 class="Box-title h2">Output</h3>
+                    </div>
+                    <div class="Box-body">
+                        <div id="output-quality" class="p-1">
+                            <span class="h3">Quality:</span>
+                            <span class="mx-2">
+                                <img v-for="i in quality" src="assets/star-gold.svg" class="mx-1">
+                                <img v-for="i in (10-quality)" src="assets/star-white.svg" class="mx-1">
+                            </span>
+                            <span class="h3">({{ quality }}/10)</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div id="result" v-if="showResults">
-                <h1>Quality: {{ quality }}</h1>
+
+            <!-- Footer -->
+            <div class="Header footer">
+                <div class="Header-item center">
+                    <span class="">By Alex Gulko, David Novikov, Jonathan Wang, and Gowrav Mannem for HackAI 2023</span>
+                </div>
             </div>
 
         `,
         methods: {
             submit(e) {
                 e.preventDefault()
+                this.canSubmit = false
+                this.showResults = false
+                this.loading = true
                 console.log("submit")
+                if (this.inputType == "product") {
+                    this.parameters = {
+                        "ph": this.productSelected['ph'],
+                        "sugar": this.productSelected['sugar'],
+                        "alcohol": this.productSelected['abv'],
+                        "acidity": this.productSelected['acidity']
+                    }
+                }
                 this.quality = predict(this.parameters)
-                this.showResults = true
-                console.log(this.quality)
+                // scroll to loading animation
+                setTimeout(() => {
+                    document.getElementById("output-section").scrollIntoView({behavior: "smooth"})
+                }, 100)
+                // document.getElementById("output-section").scrollIntoView({behavior: "smooth"})
+
+                setTimeout(() => {
+                    this.loading = false
+                    this.showResults = true
+                    this.canSubmit = true
+                }, 2000)
             },
             parametersFieldValidate(parameter) {
                 if (typeof this.parameters[parameter] != "number" || this.parameters[parameter] < 0) {
@@ -134,6 +236,19 @@
                     }
                 }
 
+            },
+            productLookupTyping(e) {
+                if (this.productName.length > 0) {
+                    this.productLookupAutocomplete = wines.filter(wine => wine.name.toLowerCase().includes(this.productName.toLowerCase()))
+                } else {
+                    this.productLookupAutocomplete = []
+                }
+            },
+            productLookupAutocompleteAccept(wine) {
+                this.productSelected = wine
+                this.productName = wine.name
+                this.productLookupAutocomplete = []
+                document.getElementById("product-lookup").value = ""
             }
         }
 

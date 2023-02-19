@@ -51,12 +51,12 @@ function predict(parameters) {
     return maxIndex
 }
 
-setTimeout(() => {
-    for (let i = 0; i < tests.length; i++) {
-        let testData = tests[i].splice(0, 11)
-        console.log(predict(testData), tests[i][0])
-    }
-}, 1000)
+// setTimeout(() => {
+//     for (let i = 0; i < tests.length; i++) {
+//         let testData = tests[i].splice(0, 11)
+//         console.log(predict(testData), tests[i][0])
+//     }
+// }, 1000)
 
 
 
