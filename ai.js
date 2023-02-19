@@ -22,32 +22,43 @@ const tests = [[8.9, 0.56, 0.18, 1.9, 0.074, 12, 46, 0.9969, 3.17, 0.92, 9.5, 6]
 [8.7, 0.58, 0.21, 2.5, 0.097, 18, 91, 0.99596, 3.19, 0.68, 9.2, 5],
 [12, 0.31, 0.49, 2.8, 0.091, 9, 30, 0.9987, 3.04, 0.81, 10.7, 6]]
 
+const fixedToCitricAcid = (x) => 0.0768*x + -0.378
 
-
-function predict(parameters) {
+function predict(parameters, replaceZerosWithMean = false) {
     if (model == null) {
-        console.log('Model not loaded');
-        return {"error": "Model not loaded"};
+        console.log('Model not loaded')
+        return {"error": "Model not loaded"}
+    }
+    console.log("Vector recieved", parameters)
+
+    parameters = Object.values(parameters)
+    
+    // replace zeros with mean
+    if (replaceZerosWithMean) {
+        for (let i = 0; i < parameters.length; i++) {
+            if (i == 2 && parameters[i] == 0) {
+                parameters[i] = fixedToCitricAcid(parameters[0])
+            } else if (parameters[i] == 0) {
+                parameters[i] = means[i]
+            }
+        }
     }
     
-    if (typeof parameters == "object")
-        parameters = Object.values(parameters);
-    // parameters = [8, 0.5, 0.39, 2.2, 0.073, 30, 39, 0.99572, 3.33, 0.77, 12.1] // test data
-    parameters = parameters.map((x, i) => (x - means[i]) / stds[i]);
-    const x = tf.tensor2d(parameters, [1, 11]);
-    const result = model.predict(x);
+    parameters = parameters.map((x, i) => (x - means[i]) / stds[i])
+    const x = tf.tensor2d(parameters, [1, 11])
+    const result = model.predict(x)
     let output = result.dataSync()
+
     // find max
     let max = 0;
     let maxIndex = 0;
     for (let i = 0; i < output.length; i++) {
         if (output[i] > max) {
-            max = output[i];
-            maxIndex = i;
+            max = output[i]
+            maxIndex = i
         }
     }
     maxIndex += 3
-    console.log(maxIndex)
     return maxIndex
 }
 
