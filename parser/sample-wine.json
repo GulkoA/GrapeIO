@@ -1,0 +1,567 @@
+{
+    "pageProps": {
+        "winery": {
+            "__typename": "Winery",
+            "id": "OR-AJHQCRBEG",
+            "name": "Tablas Creek Vineyard",
+            "description": "Tablas Creek is the realization of the combined efforts of two of the international wine community’s leading families: the Perrin family, proprietors of Château de Beaucastel, and the Haas family of Vineyard Brands. Equally owned and run by the two families, the partnership begun in 1987 remains today as ever, even as the next generation of Haases and Perrins have stepped into leadership roles over recent decades.",
+            "verified": true,
+            "pro": true,
+            "logoImage": {
+                "__typename": "Photo",
+                "large": "https://cellar.db.wine/attachments/bb48f60e-9afe-4d9c-bcc9-04d240048db1/ec04741680771f60f068dec564d34762334175161d3c5c374fcbccad22692ae9.png",
+                "xlarge": "https://cellar.db.wine/attachments/bb48f60e-9afe-4d9c-bcc9-04d240048db1/166725d25a29261e3bee68f936188fb606a9036d1abf38b80496aca123e7be22.png"
+            },
+            "coverImage": {
+                "__typename": "Photo",
+                "large": "https://cellar.db.wine/attachments/0146b723-4874-4cb0-aa8a-0d2518d6ca97/7cde1e7d1d8eb1c6c29a7272353604de25cb3e6c4745d91b9629ee8f3161233f.jpg",
+                "xxlarge": "https://cellar.db.wine/attachments/0146b723-4874-4cb0-aa8a-0d2518d6ca97/b357bc24634e7fca907dc2571eafb3ac7f01314b1b996af37c1ab6d501207ffe.jpg"
+            },
+            "location": [
+                {
+                    "__typename": "Location",
+                    "name": "United States"
+                },
+                {
+                    "__typename": "Location",
+                    "name": "California"
+                }
+            ]
+        },
+        "wine": {
+            "__typename": "Wine",
+            "id": "WN-IFCYSWTHK",
+            "slug": "wine-1-tablas-creek-vineyard",
+            "name": "Esprit de Tablas",
+            "description": "The Tablas Creek Vineyard 2019 Esprit de Tablas is our flagship red blend, chosen from the best lots of four estate-grown varietals propagated from budwood cuttings from the Château de Beaucastel estate. The wine is based on the dark red fruit, earth, spice and mid-palate richness of Mourvèdre, with additions of Grenache for forward fruit, approachability and lushness, Syrah for mineral, aromatics, and back-palate tannins, and Counoise for brambly spice and acidity.",
+            "bottleShot": "https://cellar.db.wine/attachments/9e1ce2c1-ebba-4c34-9f33-b35143dfdf02/1ff54dfade3890077a7d57754e91bb15712cafaf468da1f195ba51ece21f5142.jpg",
+            "colour": {
+                "__typename": "WineColour",
+                "name": "Red"
+            },
+            "vintages": [
+                {
+                    "__typename": "Vintage",
+                    "id": "VT-PFNBORWVG",
+                    "year": 2017,
+                    "bottleShot": "https://cellar.db.wine/attachments/a9c5fa18-0b55-4113-a57f-ffb8e7d01548/742049ad9bcc4e9935aa6201dc84b7ad25dc88a747105d145f1ef1760c353114.jpg",
+                    "abv": 14.5,
+                    "acidity": null,
+                    "aging": null,
+                    "appearance": null,
+                    "bottling": null,
+                    "currency": null,
+                    "endYear": null,
+                    "growingConditions": null,
+                    "harvest": null,
+                    "nonVintage": false,
+                    "nose": null,
+                    "pairing": null,
+                    "palate": null,
+                    "ph": null,
+                    "price": null,
+                    "purchaseUrl": null,
+                    "startYear": null,
+                    "sugar": null,
+                    "appellation": {
+                        "__typename": "Appellation",
+                        "id": "AP-AWMTRSEHC",
+                        "name": "Adelaida District",
+                        "slug": "adelaida-district"
+                    },
+                    "varieties": [
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Mourvèdre",
+                            "percentage": "40.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#E73334"
+                            }
+                        },
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Grenache",
+                            "percentage": "35.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#E73334"
+                            }
+                        },
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Syrah",
+                            "percentage": "20.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#981C41"
+                            }
+                        },
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Counoise",
+                            "percentage": "5.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#F05757"
+                            }
+                        }
+                    ],
+                    "awards": [],
+                    "ratings": []
+                },
+                {
+                    "__typename": "Vintage",
+                    "id": "VT-WELCMPAKY",
+                    "year": 2018,
+                    "bottleShot": "https://cellar.db.wine/attachments/33d09c27-c9d9-40c8-8387-e43829fc0c46/fb38da7fa1e3a15f99ca046125ce22184716eb451e451395b7d44ed06434573e.jpg",
+                    "abv": null,
+                    "acidity": null,
+                    "aging": null,
+                    "appearance": null,
+                    "bottling": null,
+                    "currency": null,
+                    "endYear": null,
+                    "growingConditions": null,
+                    "harvest": null,
+                    "nonVintage": false,
+                    "nose": null,
+                    "pairing": null,
+                    "palate": null,
+                    "ph": null,
+                    "price": null,
+                    "purchaseUrl": null,
+                    "startYear": null,
+                    "sugar": null,
+                    "appellation": {
+                        "__typename": "Appellation",
+                        "id": "AP-AWMTRSEHC",
+                        "name": "Adelaida District",
+                        "slug": "adelaida-district"
+                    },
+                    "varieties": [
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Mourvèdre",
+                            "percentage": "40.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#E73334"
+                            }
+                        },
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Syrah",
+                            "percentage": "27.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#981C41"
+                            }
+                        },
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Grenache",
+                            "percentage": "23.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#E73334"
+                            }
+                        },
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Counoise",
+                            "percentage": "10.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#F05757"
+                            }
+                        }
+                    ],
+                    "awards": [],
+                    "ratings": []
+                },
+                {
+                    "__typename": "Vintage",
+                    "id": "VT-WACLDMQGF",
+                    "year": 2019,
+                    "bottleShot": "https://cellar.db.wine/attachments/9e1ce2c1-ebba-4c34-9f33-b35143dfdf02/1ff54dfade3890077a7d57754e91bb15712cafaf468da1f195ba51ece21f5142.jpg",
+                    "abv": 14,
+                    "acidity": null,
+                    "aging": "",
+                    "appearance": "",
+                    "bottling": "We recommend that you drink either between now and 2024 or again starting in 2027 any time over the subsequent two decades.",
+                    "currency": "USD",
+                    "endYear": null,
+                    "growingConditions": "The 2019 vintage began with ample rainfall the preceding winter. The wet soils delayed budbreak to a little after normal, and a cool first half of the summer delayed flowering and the ripening of our earlier varieties. Beginning the second week of July, the weather turned warm but never so warm to engage the vines' self-defense mechanism of shutting down, accelerating ripening of our later varieties and producing intense flavors. The resulting compressed harvest was completed under ideal conditions and the vintage shows both concentration and freshness, with bright acids framing ample fruit.",
+                    "harvest": "The grapes for our Esprit de Tablas were grown on our certified organic and biodynamic estate vineyard.",
+                    "nonVintage": false,
+                    "nose": "An intense Mourvèdre nose of spiced plum, sarsaparilla, loamy earth, and new leather. ",
+                    "pairing": "Game\r\nDark Fowl (i.e., duck)\r\nRichly flavored stews\r\nLamb\r\nAsian preparation of red meats (i.e., beef stir fry)",
+                    "palate": "The palate is mouth-coating with flavors of black cherry, teriyaki marinade, baker's chocolate and iron. The long, richly tannic finish promises more rewards to come with cellar aging, and leaves lingering flavors of plum skin and roasted meats. ",
+                    "ph": null,
+                    "price": 60,
+                    "purchaseUrl": "https://tablascreek.com/wines/2019_esprit_de_tablas",
+                    "startYear": null,
+                    "sugar": null,
+                    "appellation": {
+                        "__typename": "Appellation",
+                        "id": "AP-AWMTRSEHC",
+                        "name": "Adelaida District",
+                        "slug": "adelaida-district"
+                    },
+                    "varieties": [
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Mourvèdre",
+                            "percentage": "39.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#E73334"
+                            }
+                        },
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Grenache",
+                            "percentage": "30.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#E73334"
+                            }
+                        },
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Syrah",
+                            "percentage": "21.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#981C41"
+                            }
+                        },
+                        {
+                            "__typename": "VintageVariety",
+                            "name": "Counoise",
+                            "percentage": "10.0",
+                            "meta": {
+                                "__typename": "Variety",
+                                "colour": "#F05757"
+                            }
+                        }
+                    ],
+                    "awards": [],
+                    "ratings": []
+                }
+            ],
+            "winery": {
+                "__typename": "Winery",
+                "id": "OR-AJHQCRBEG",
+                "name": "Tablas Creek Vineyard",
+                "description": "Tablas Creek is the realization of the combined efforts of two of the international wine community’s leading families: the Perrin family, proprietors of Château de Beaucastel, and the Haas family of Vineyard Brands. Equally owned and run by the two families, the partnership begun in 1987 remains today as ever, even as the next generation of Haases and Perrins have stepped into leadership roles over recent decades.",
+                "verified": true,
+                "pro": true,
+                "logoImage": {
+                    "__typename": "Photo",
+                    "large": "https://cellar.db.wine/attachments/bb48f60e-9afe-4d9c-bcc9-04d240048db1/ec04741680771f60f068dec564d34762334175161d3c5c374fcbccad22692ae9.png",
+                    "xlarge": "https://cellar.db.wine/attachments/bb48f60e-9afe-4d9c-bcc9-04d240048db1/166725d25a29261e3bee68f936188fb606a9036d1abf38b80496aca123e7be22.png"
+                },
+                "coverImage": {
+                    "__typename": "Photo",
+                    "large": "https://cellar.db.wine/attachments/0146b723-4874-4cb0-aa8a-0d2518d6ca97/7cde1e7d1d8eb1c6c29a7272353604de25cb3e6c4745d91b9629ee8f3161233f.jpg",
+                    "xxlarge": "https://cellar.db.wine/attachments/0146b723-4874-4cb0-aa8a-0d2518d6ca97/b357bc24634e7fca907dc2571eafb3ac7f01314b1b996af37c1ab6d501207ffe.jpg"
+                },
+                "location": [
+                    {
+                        "__typename": "Location",
+                        "name": "United States"
+                    },
+                    {
+                        "__typename": "Location",
+                        "name": "California"
+                    }
+                ]
+            }
+        },
+        "vintages": [
+            {
+                "__typename": "Vintage",
+                "id": "VT-WACLDMQGF",
+                "year": 2019,
+                "bottleShot": "https://cellar.db.wine/attachments/9e1ce2c1-ebba-4c34-9f33-b35143dfdf02/1ff54dfade3890077a7d57754e91bb15712cafaf468da1f195ba51ece21f5142.jpg",
+                "abv": 14,
+                "acidity": null,
+                "aging": "",
+                "appearance": "",
+                "bottling": "We recommend that you drink either between now and 2024 or again starting in 2027 any time over the subsequent two decades.",
+                "currency": "USD",
+                "endYear": null,
+                "growingConditions": "The 2019 vintage began with ample rainfall the preceding winter. The wet soils delayed budbreak to a little after normal, and a cool first half of the summer delayed flowering and the ripening of our earlier varieties. Beginning the second week of July, the weather turned warm but never so warm to engage the vines' self-defense mechanism of shutting down, accelerating ripening of our later varieties and producing intense flavors. The resulting compressed harvest was completed under ideal conditions and the vintage shows both concentration and freshness, with bright acids framing ample fruit.",
+                "harvest": "The grapes for our Esprit de Tablas were grown on our certified organic and biodynamic estate vineyard.",
+                "nonVintage": false,
+                "nose": "An intense Mourvèdre nose of spiced plum, sarsaparilla, loamy earth, and new leather. ",
+                "pairing": "Game\r\nDark Fowl (i.e., duck)\r\nRichly flavored stews\r\nLamb\r\nAsian preparation of red meats (i.e., beef stir fry)",
+                "palate": "The palate is mouth-coating with flavors of black cherry, teriyaki marinade, baker's chocolate and iron. The long, richly tannic finish promises more rewards to come with cellar aging, and leaves lingering flavors of plum skin and roasted meats. ",
+                "ph": null,
+                "price": 60,
+                "purchaseUrl": "https://tablascreek.com/wines/2019_esprit_de_tablas",
+                "startYear": null,
+                "sugar": null,
+                "appellation": {
+                    "__typename": "Appellation",
+                    "id": "AP-AWMTRSEHC",
+                    "name": "Adelaida District",
+                    "slug": "adelaida-district"
+                },
+                "varieties": [
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Mourvèdre",
+                        "percentage": "39.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#E73334"
+                        }
+                    },
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Grenache",
+                        "percentage": "30.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#E73334"
+                        }
+                    },
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Syrah",
+                        "percentage": "21.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#981C41"
+                        }
+                    },
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Counoise",
+                        "percentage": "10.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#F05757"
+                        }
+                    }
+                ],
+                "awards": [],
+                "ratings": []
+            },
+            {
+                "__typename": "Vintage",
+                "id": "VT-WELCMPAKY",
+                "year": 2018,
+                "bottleShot": "https://cellar.db.wine/attachments/33d09c27-c9d9-40c8-8387-e43829fc0c46/fb38da7fa1e3a15f99ca046125ce22184716eb451e451395b7d44ed06434573e.jpg",
+                "abv": null,
+                "acidity": null,
+                "aging": null,
+                "appearance": null,
+                "bottling": null,
+                "currency": null,
+                "endYear": null,
+                "growingConditions": null,
+                "harvest": null,
+                "nonVintage": false,
+                "nose": null,
+                "pairing": null,
+                "palate": null,
+                "ph": null,
+                "price": null,
+                "purchaseUrl": null,
+                "startYear": null,
+                "sugar": null,
+                "appellation": {
+                    "__typename": "Appellation",
+                    "id": "AP-AWMTRSEHC",
+                    "name": "Adelaida District",
+                    "slug": "adelaida-district"
+                },
+                "varieties": [
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Mourvèdre",
+                        "percentage": "40.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#E73334"
+                        }
+                    },
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Syrah",
+                        "percentage": "27.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#981C41"
+                        }
+                    },
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Grenache",
+                        "percentage": "23.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#E73334"
+                        }
+                    },
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Counoise",
+                        "percentage": "10.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#F05757"
+                        }
+                    }
+                ],
+                "awards": [],
+                "ratings": []
+            },
+            {
+                "__typename": "Vintage",
+                "id": "VT-PFNBORWVG",
+                "year": 2017,
+                "bottleShot": "https://cellar.db.wine/attachments/a9c5fa18-0b55-4113-a57f-ffb8e7d01548/742049ad9bcc4e9935aa6201dc84b7ad25dc88a747105d145f1ef1760c353114.jpg",
+                "abv": 14.5,
+                "acidity": null,
+                "aging": null,
+                "appearance": null,
+                "bottling": null,
+                "currency": null,
+                "endYear": null,
+                "growingConditions": null,
+                "harvest": null,
+                "nonVintage": false,
+                "nose": null,
+                "pairing": null,
+                "palate": null,
+                "ph": null,
+                "price": null,
+                "purchaseUrl": null,
+                "startYear": null,
+                "sugar": null,
+                "appellation": {
+                    "__typename": "Appellation",
+                    "id": "AP-AWMTRSEHC",
+                    "name": "Adelaida District",
+                    "slug": "adelaida-district"
+                },
+                "varieties": [
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Mourvèdre",
+                        "percentage": "40.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#E73334"
+                        }
+                    },
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Grenache",
+                        "percentage": "35.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#E73334"
+                        }
+                    },
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Syrah",
+                        "percentage": "20.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#981C41"
+                        }
+                    },
+                    {
+                        "__typename": "VintageVariety",
+                        "name": "Counoise",
+                        "percentage": "5.0",
+                        "meta": {
+                            "__typename": "Variety",
+                            "colour": "#F05757"
+                        }
+                    }
+                ],
+                "awards": [],
+                "ratings": []
+            }
+        ],
+        "vintage": {
+            "__typename": "Vintage",
+            "id": "VT-WACLDMQGF",
+            "year": 2019,
+            "bottleShot": "https://cellar.db.wine/attachments/9e1ce2c1-ebba-4c34-9f33-b35143dfdf02/1ff54dfade3890077a7d57754e91bb15712cafaf468da1f195ba51ece21f5142.jpg",
+            "abv": 14,
+            "acidity": null,
+            "aging": "",
+            "appearance": "",
+            "bottling": "We recommend that you drink either between now and 2024 or again starting in 2027 any time over the subsequent two decades.",
+            "currency": "USD",
+            "endYear": null,
+            "growingConditions": "The 2019 vintage began with ample rainfall the preceding winter. The wet soils delayed budbreak to a little after normal, and a cool first half of the summer delayed flowering and the ripening of our earlier varieties. Beginning the second week of July, the weather turned warm but never so warm to engage the vines' self-defense mechanism of shutting down, accelerating ripening of our later varieties and producing intense flavors. The resulting compressed harvest was completed under ideal conditions and the vintage shows both concentration and freshness, with bright acids framing ample fruit.",
+            "harvest": "The grapes for our Esprit de Tablas were grown on our certified organic and biodynamic estate vineyard.",
+            "nonVintage": false,
+            "nose": "An intense Mourvèdre nose of spiced plum, sarsaparilla, loamy earth, and new leather. ",
+            "pairing": "Game\r\nDark Fowl (i.e., duck)\r\nRichly flavored stews\r\nLamb\r\nAsian preparation of red meats (i.e., beef stir fry)",
+            "palate": "The palate is mouth-coating with flavors of black cherry, teriyaki marinade, baker's chocolate and iron. The long, richly tannic finish promises more rewards to come with cellar aging, and leaves lingering flavors of plum skin and roasted meats. ",
+            "ph": null,
+            "price": 60,
+            "purchaseUrl": "https://tablascreek.com/wines/2019_esprit_de_tablas",
+            "startYear": null,
+            "sugar": null,
+            "appellation": {
+                "__typename": "Appellation",
+                "id": "AP-AWMTRSEHC",
+                "name": "Adelaida District",
+                "slug": "adelaida-district"
+            },
+            "varieties": [
+                {
+                    "__typename": "VintageVariety",
+                    "name": "Mourvèdre",
+                    "percentage": "39.0",
+                    "meta": {
+                        "__typename": "Variety",
+                        "colour": "#E73334"
+                    }
+                },
+                {
+                    "__typename": "VintageVariety",
+                    "name": "Grenache",
+                    "percentage": "30.0",
+                    "meta": {
+                        "__typename": "Variety",
+                        "colour": "#E73334"
+                    }
+                },
+                {
+                    "__typename": "VintageVariety",
+                    "name": "Syrah",
+                    "percentage": "21.0",
+                    "meta": {
+                        "__typename": "Variety",
+                        "colour": "#981C41"
+                    }
+                },
+                {
+                    "__typename": "VintageVariety",
+                    "name": "Counoise",
+                    "percentage": "10.0",
+                    "meta": {
+                        "__typename": "Variety",
+                        "colour": "#F05757"
+                    }
+                }
+            ],
+            "awards": [],
+            "ratings": []
+        }
+    },
+    "__N_SSG": true
+}
