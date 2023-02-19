@@ -47,7 +47,9 @@
                     "sulphates": false,
                     "alcohol": false
                 },
-                loading: false
+                loading: false,
+                showResults: false,
+                quality: 0
             }
         },
         template: /*html*/`
@@ -84,7 +86,7 @@
 
                             <div v-for="value, parameter in parameters" class="form-group" :class="{errored: errors[parameter]}" > 
                                 <label :for="parameter" class="form-label form-group-header d-block">{{ parameter.charAt(0).toUpperCase() + parameter.slice(1).replaceAll("-", " ") }}</label>
-                                <input :id="parameter + '-input'" type="number" :name="parameter" class="form-control d-block form-group-body" @input="parametersFieldValidate(parameter)" v-model="parameters[parameter]">
+                                <input :id="parameter + '-input'" type="number" step="0.000001" :name="parameter" class="form-control d-block form-group-body" @input="parametersFieldValidate(parameter)" v-model="parameters[parameter]">
                                 <p class="note error">bruh</p>
                             </div>
 
@@ -104,11 +106,18 @@
                 <img width="250" src="assets/wine.gif" alt="loading">
             </div>
 
+            <div id="result" v-if="showResults">
+                <h1>Quality: {{ quality }}</h1>
+            </div>
+
         `,
         methods: {
             submit(e) {
                 e.preventDefault()
                 console.log("submit")
+                this.quality = predict(this.parameters)
+                this.showResults = true
+                console.log(this.quality)
             },
             parametersFieldValidate(parameter) {
                 if (typeof this.parameters[parameter] != "number" || this.parameters[parameter] < 0) {
