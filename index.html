@@ -188,7 +188,7 @@
             <div id="output-section" class="w-full">
                 <div class="center">
                     <div id="loading-animation Box m-4 " v-if="loading">
-                        <img width="250" src="assets/wine-dark-nobg.gif" alt="loading">
+                        <img width="250" src="assets/wine-dark-nobg-speed.gif" alt="loading">
                         <h3 class="h3 center">Processing</h3>
                     </div>
                 </div>
@@ -328,6 +328,7 @@
                 let randomWine = wines[Math.floor(Math.random() * wines.length)]
                 if (!this.productsSelectedList.includes(randomWine)) {
                     this.productsSelectedList.push(randomWine)
+                    this.productSelected = randomWine
                 }
                 this.canSubmit = true
             },
